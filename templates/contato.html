@@ -6,21 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato UNES</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="shortcut icon" href="/images/logo.png" type="FaviconUNES">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.ico') }}" type="image/x-icon">
     <style>
         body {
             background-color: #f8f9fa;
+            transition: background-color 0.5s, color 0.5s;
         }
 
         .header,
         .footer {
             background-color: #343a40;
             color: #ffffff;
+            transition: background-color 0.5s, color 0.5s;
         }
 
         .btn-primary {
             background-color: #007bff;
             border-color: #007bff;
+        }
+
+        .dark-mode {
+            background-color: #212529;
+            color: #ffffff;
+        }
+
+        .dark-mode .header,
+        .dark-mode .footer {
+            background-color: #343a40;
+        }
+
+        .dark-mode .btn-primary {
+            background-color: #0056b3;
+            border-color: #0056b3;
         }
 
         @media (max-width: 768px) {
@@ -40,14 +57,15 @@
 <body>
     <header class="container-fluid header py-3">
         <div class="d-flex justify-content-between align-items-center">
-            <img src="/images/logo.png" alt="LogoDaFaculdade" width="100">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="LogoDaFaculdade" width="100">
             <nav>
                 <ul class="nav">
                     <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="sobre.html">Quem Somos</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="Contato.html">Contato</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="contato.html">Contato</a></li>
                 </ul>
             </nav>
+            <button id="toggleMode" class="btn btn-outline-light">Modo Escuro</button>
         </div>
     </header>
 
@@ -73,8 +91,6 @@
                 <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
             </div>
         </form>
-        
-        
 
         <div class="mt-5">
             <h2 class="text-center">Siga-nos nas redes sociais!</h2>
@@ -90,14 +106,12 @@
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h2 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-                                aria-expanded="true" aria-controls="collapseOne">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 Pergunta 1: Como posso me inscrever?
                             </button>
                         </h2>
                     </div>
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                        data-parent="#accordionExample">
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <div class="card-body">
                             Você pode se inscrever através do site oficial da UNES na seção de matrículas.
                         </div>
@@ -106,8 +120,7 @@
                 <div class="card">
                     <div class="card-header" id="headingTwo">
                         <h2 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 Pergunta 2: Quais cursos estão disponíveis?
                             </button>
                         </h2>
@@ -150,8 +163,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Missão</h5>
-                            <p class="card-text">Promover a educação de qualidade e desenvolver competências para o
-                                mercado.</p>
+                            <p class="card-text">Promover a educação de qualidade e desenvolver competências para o mercado.</p>
                         </div>
                     </div>
                 </div>
@@ -173,7 +185,6 @@
                 </div>
             </div>
         </div>
-
     </section>
 
     <footer class="footer text-white text-center py-3 mt-5">
@@ -183,6 +194,17 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const toggleMode = document.getElementById('toggleMode');
+        toggleMode.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                toggleMode.textContent = 'Modo Claro';
+            } else {
+                toggleMode.textContent = 'Modo Escuro';
+            }
+        });
+    </script>
 </body>
 
 </html>
