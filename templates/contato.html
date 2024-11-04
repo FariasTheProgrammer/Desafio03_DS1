@@ -10,6 +10,7 @@
     <style>
         body {
             background-color: #f8f9fa;
+            color: #212529;
             transition: background-color 0.5s, color 0.5s;
         }
 
@@ -25,9 +26,14 @@
             border-color: #007bff;
         }
 
+        .btn-outline-light {
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
         .dark-mode {
             background-color: #212529;
-            color: #ffffff;
+            color: #f8f9fa;
         }
 
         .dark-mode .header,
@@ -40,16 +46,20 @@
             border-color: #0056b3;
         }
 
-        @media (max-width: 768px) {
-            .card-img-top {
-                height: 200px;
-            }
+        .dark-mode .btn-outline-light {
+            color: #f8f9fa;
+            border-color: #f8f9fa;
         }
 
-        @media (max-width: 576px) {
-            .card-img-top {
-                height: 150px;
-            }
+        .dark-mode .card {
+            background-color: #343a40;
+            color: #f8f9fa;
+        }
+
+        .dark-mode .form-control,
+        .dark-mode .table {
+            background-color: #495057;
+            color: #f8f9fa;
         }
     </style>
 </head>
@@ -71,21 +81,22 @@
 
     <section class="container mt-5">
         <h1 class="text-center">Entre em contato</h1>
-        <p class="text-muted text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         <hr>
-
         <form action="/submit" method="POST">
             <div class="form-group">
                 <label for="email">Seu email:</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email" required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email"
+                    required>
             </div>
             <div class="form-group">
                 <label for="assunto">Assunto:</label>
-                <input type="text" class="form-control" id="assunto" name="assunto" placeholder="Digite o assunto" required>
+                <input type="text" class="form-control" id="assunto" name="assunto" placeholder="Digite o assunto"
+                    required>
             </div>
             <div class="form-group">
                 <label for="descricao">Descrição:</label>
-                <textarea class="form-control" id="descricao" name="descricao" rows="4" placeholder="Escreva sua mensagem" required></textarea>
+                <textarea class="form-control" id="descricao" name="descricao" rows="4"
+                    placeholder="Escreva sua mensagem" required></textarea>
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
@@ -106,12 +117,14 @@
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h2 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">
                                 Pergunta 1: Como posso me inscrever?
                             </button>
                         </h2>
                     </div>
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                        data-parent="#accordionExample">
                         <div class="card-body">
                             Você pode se inscrever através do site oficial da UNES na seção de matrículas.
                         </div>
@@ -120,7 +133,8 @@
                 <div class="card">
                     <div class="card-header" id="headingTwo">
                         <h2 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 Pergunta 2: Quais cursos estão disponíveis?
                             </button>
                         </h2>
@@ -163,7 +177,8 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Missão</h5>
-                            <p class="card-text">Promover a educação de qualidade e desenvolver competências para o mercado.</p>
+                            <p class="card-text">Promover a educação de qualidade e desenvolver competências para o
+                                mercado.</p>
                         </div>
                     </div>
                 </div>
@@ -185,6 +200,7 @@
                 </div>
             </div>
         </div>
+
     </section>
 
     <footer class="footer text-white text-center py-3 mt-5">
